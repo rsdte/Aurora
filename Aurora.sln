@@ -1,7 +1,5 @@
 
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Aurora.HostApi", "src\Aurora.HostApi\Aurora.HostApi.csproj", "{D0201B82-81E8-45A0-B3FB-82225EC3E0E9}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Aurora.Domain", "src\Aurora.Domain\Aurora.Domain.csproj", "{4EC537D0-BCBE-42B5-9996-3B8BED2DD313}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Aurora.Domain.Shared", "src\Aurora.Domain.Shared\Aurora.Domain.Shared.csproj", "{7054B216-73A1-4ECD-873B-0EB3337B8F9A}"
@@ -12,16 +10,14 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Contracts.Application", "sr
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Aurora.EntityFrameworkCore", "src\Aurora.EntityFrameworkCore\Aurora.EntityFrameworkCore.csproj", "{9F226EC6-B7B6-4045-A95F-FD41A10DF369}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Aurora.HostApi", "src\Aurora.HostApi\Aurora.HostApi.csproj", "{8303C9B3-2A6D-44F3-8193-6622E91B99F0}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{D0201B82-81E8-45A0-B3FB-82225EC3E0E9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{D0201B82-81E8-45A0-B3FB-82225EC3E0E9}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{D0201B82-81E8-45A0-B3FB-82225EC3E0E9}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{D0201B82-81E8-45A0-B3FB-82225EC3E0E9}.Release|Any CPU.Build.0 = Release|Any CPU
 		{4EC537D0-BCBE-42B5-9996-3B8BED2DD313}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{4EC537D0-BCBE-42B5-9996-3B8BED2DD313}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4EC537D0-BCBE-42B5-9996-3B8BED2DD313}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -42,5 +38,9 @@ Global
 		{9F226EC6-B7B6-4045-A95F-FD41A10DF369}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9F226EC6-B7B6-4045-A95F-FD41A10DF369}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9F226EC6-B7B6-4045-A95F-FD41A10DF369}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8303C9B3-2A6D-44F3-8193-6622E91B99F0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8303C9B3-2A6D-44F3-8193-6622E91B99F0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8303C9B3-2A6D-44F3-8193-6622E91B99F0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8303C9B3-2A6D-44F3-8193-6622E91B99F0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
