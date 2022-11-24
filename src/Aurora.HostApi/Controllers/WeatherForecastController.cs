@@ -1,3 +1,4 @@
+using Aurora.Domain.Shared.Utils;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Aurora.HostApi.Controllers;
@@ -22,11 +23,12 @@ public class WeatherForecastController : ControllerBase
     public IEnumerable<WeatherForecast> Get()
     {
         return Enumerable.Range(1, 5).Select(index => new WeatherForecast
-            {
-                Date = DateTime.Now.AddDays(index),
-                TemperatureC = Random.Shared.Next(-20, 55),
-                Summary = Summaries[Random.Shared.Next(Summaries.Length)]
-            })
+        {
+            Date = DateTime.Now.AddDays(index),
+            TemperatureC = Random.Shared.Next(-20, 55),
+            Summary = Summaries[Random.Shared.Next(Summaries.Length)],
+            Id = IdHelper.Get()
+        })
             .ToArray();
     }
 }
