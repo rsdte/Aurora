@@ -9,7 +9,7 @@ public class UserRoleEntityTypeConfiguration: EntityTypeConfigurationBase<UserRo
 {
     protected override void OnConfigure(EntityTypeBuilder<UserRole> builder)
     {
-        builder.ToTable("db_user_role");
+        builder.ToTable("tb_user_role");
 
         builder.Property(p => p.TenantId).HasMaxLength(EntityConfigurationBase.IdMaxLength).IsRequired();
         builder.Property(p => p.UserId).HasMaxLength(EntityConfigurationBase.IdMaxLength).IsRequired();

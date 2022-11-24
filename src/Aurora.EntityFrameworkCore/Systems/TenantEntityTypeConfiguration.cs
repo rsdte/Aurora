@@ -10,7 +10,7 @@ public class TenantEntityTypeConfiguration: EntityTypeConfigurationBase<Tenant>
 {
     protected override void OnConfigure(EntityTypeBuilder<Tenant> builder)
     {
-        builder.ToTable("db_tenant");
+        builder.ToTable("tb_tenant");
 
         builder.Property(p => p.Name).IsRequired().HasMaxLength(TenantConfiguration.NameMaxLength);
         builder.Property(p => p.ParentId).HasMaxLength(EntityConfigurationBase.IdMaxLength);
