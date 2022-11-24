@@ -1,4 +1,4 @@
-﻿namespace Aurora.Domain.Systems;
+﻿namespace Aurora.Domain.Systems.Roles;
 
 public class Role : EntityBase
 {
@@ -6,10 +6,10 @@ public class Role : EntityBase
     /// 租户id
     /// </summary>
     public string TenantId { get; set; }
-    
+
     /// <summary>
     /// 角色名称
     /// </summary>
     public string Name { get; set; }
-    
+
 }

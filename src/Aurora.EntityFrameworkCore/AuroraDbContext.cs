@@ -1,5 +1,8 @@
 ﻿using Aurora.Domain.Shared;
-using Aurora.Domain.Systems;
+using Aurora.Domain.Systems.Permissions;
+using Aurora.Domain.Systems.Roles;
+using Aurora.Domain.Systems.UserRoles;
+using Aurora.Domain.Systems.Users;
 using Microsoft.EntityFrameworkCore;
 
 namespace Aurora.EntityFrameworkCore;

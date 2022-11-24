@@ -1,5 +1,6 @@
 using Aurora.EntityFrameworkCore;
 using Aurora.HostApi.Options;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
 
@@ -10,6 +11,17 @@ builder.Services.AddOptions<DatabaseOption>("Database");
 var databaseOption = builder.Services.BuildServiceProvider().GetService<IOptions<DatabaseOption>>();
 builder.Services.AddDbContext<AuroraDbContext>(opts => opts.UseMySql(builder.Configuration.GetConnectionString("Default"),ServerVersion.Create(new Version(8, 0), Pomelo.EntityFrameworkCore.MySql.Infrastructure.ServerType.MySql))); ;
 
+var jwtConfig = builder.Configuration.GetSection("JwtConfig").Get<JwtConfig>();
+builder.Services
+        .AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+        .AddJwtBearer(config =>
+        {
+            config.SaveToken = true;
+            config.RequireHttpsMetadata = true;
+            config.TokenValidationParameters = jwtConfig.TokenValidationParameters;
+        });
+
+builder.Services.AddHttpContextAccessor();
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();

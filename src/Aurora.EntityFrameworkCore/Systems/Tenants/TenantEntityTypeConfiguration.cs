@@ -1,12 +1,12 @@
 ﻿using Aurora.Domain.Shared;
 using Aurora.Domain.Shared.Systems.Tenants;
-using Aurora.Domain.Systems;
+using Aurora.Domain.Systems.Tenants;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace Aurora.EntityFrameworkCore.Systems;
+namespace Aurora.EntityFrameworkCore.Systems.Tenants;
 
-public class TenantEntityTypeConfiguration: EntityTypeConfigurationBase<Tenant>
+public class TenantEntityTypeConfiguration : EntityTypeConfigurationBase<Tenant>
 {
     protected override void OnConfigure(EntityTypeBuilder<Tenant> builder)
     {

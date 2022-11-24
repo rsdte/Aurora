@@ -1,12 +1,12 @@
 ﻿using Aurora.Domain.Shared;
 using Aurora.Domain.Shared.Systems.Users;
-using Aurora.Domain.Systems;
+using Aurora.Domain.Systems.Users;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace Aurora.EntityFrameworkCore.Systems;
+namespace Aurora.EntityFrameworkCore.Systems.Users;
 
-public class UserEntityTypeConfiguration: EntityTypeConfigurationBase<User>
+public class UserEntityTypeConfiguration : EntityTypeConfigurationBase<User>
 {
     protected override void OnConfigure(EntityTypeBuilder<User> builder)
     {

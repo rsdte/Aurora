@@ -29,6 +29,6 @@ public class WeatherForecastController : ControllerBase
             Summary = Summaries[Random.Shared.Next(Summaries.Length)],
             Id = IdHelper.Get()
         })
-            .ToArray();
+        .ToArray();
     }
 }

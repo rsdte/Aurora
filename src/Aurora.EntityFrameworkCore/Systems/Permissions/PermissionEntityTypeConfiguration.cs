@@ -1,11 +1,11 @@
 ﻿using Aurora.Domain.Shared.Systems.Permissions;
-using Aurora.Domain.Systems;
+using Aurora.Domain.Systems.Permissions;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace Aurora.EntityFrameworkCore.Systems;
+namespace Aurora.EntityFrameworkCore.Systems.Permissions;
 
-public class PermissionEntityTypeConfiguration:EntityTypeConfigurationBase<Permission>
+public class PermissionEntityTypeConfiguration : EntityTypeConfigurationBase<Permission>
 {
     protected override void OnConfigure(EntityTypeBuilder<Permission> builder)
     {

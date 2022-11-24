@@ -1,11 +1,11 @@
 ﻿using Aurora.Domain.Shared;
-using Aurora.Domain.Systems;
+using Aurora.Domain.Systems.UserRoles;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace Aurora.EntityFrameworkCore.Systems;
+namespace Aurora.EntityFrameworkCore.Systems.UserRoles;
 
-public class UserRoleEntityTypeConfiguration: EntityTypeConfigurationBase<UserRole>
+public class UserRoleEntityTypeConfiguration : EntityTypeConfigurationBase<UserRole>
 {
     protected override void OnConfigure(EntityTypeBuilder<UserRole> builder)
     {

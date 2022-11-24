@@ -1,11 +1,11 @@
 ﻿using Aurora.Domain.Shared.Systems.Permissions;
 
-namespace Aurora.Domain.Systems;
+namespace Aurora.Domain.Systems.Permissions;
 
 /// <summary>
 /// 权限
 /// </summary>
-public class Permission: EntityBase
+public class Permission : EntityBase
 {
     /// <summary>
     /// 名称

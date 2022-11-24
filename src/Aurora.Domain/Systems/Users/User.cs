@@ -1,4 +1,4 @@
-﻿namespace Aurora.Domain.Systems;
+﻿namespace Aurora.Domain.Systems.Users;
 
 public class User : EntityBase
 {
@@ -21,5 +21,5 @@ public class User : EntityBase
     /// 邮箱
     /// </summary>
     public string Email { get; set; }
-    
+
 }
