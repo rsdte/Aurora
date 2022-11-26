@@ -1,6 +1,6 @@
-﻿namespace Aurora.Core.Fillters.Results;
+﻿namespace Aurora.Core.Common;
 
-public class JsonResult
+public class JsonFormattedResult
 {
     public int Code { get; set; }
     public string Message { get; set; }

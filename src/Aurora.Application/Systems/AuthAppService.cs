@@ -1,9 +1,7 @@
 ﻿using Aurora.Application.Contracts.Systems;
 using Aurora.Application.Contracts.Systems.Dtos.AuthDtos;
+using Aurora.Core.Common;
 using Aurora.Core.Configurations;
-using Aurora.Core.Filters.Exceptions;
-using Aurora.Domain.Systems.RolePermissions;
-using Aurora.Domain.Systems.Roles;
 using Aurora.Domain.Systems.UserRoles;
 using Aurora.Domain.Systems.Users;
 using Microsoft.EntityFrameworkCore;
@@ -51,6 +49,7 @@ public class AuthAppService: IAuthAppService
             new Claim(ClaimTypes.Name, user.UserName),
             new Claim("Id", user.Id.ToString()),
             new Claim("RoleIds", String.Join(",", roleIds)),
+            new Claim("TenantId", user.TenantId),
         };
 
         var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_jwtConfig.SecretKey));

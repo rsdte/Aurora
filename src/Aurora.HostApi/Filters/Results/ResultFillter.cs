@@ -1,8 +1,8 @@
-﻿using Aurora.Core.Fillters.Results;
+﻿using Aurora.Core.Common;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
 
-namespace Aurora.Core.Filters.Results;
+namespace Aurora.HostApi.Filters.Results;
 
 public class ResultFilter: FilterBase
 {
@@ -16,7 +16,7 @@ public class ResultFilter: FilterBase
                 context.Result = Success();
                 await Task.CompletedTask;
                 return;
-            case ObjectResult { Value: JsonResult jr }:
+            case ObjectResult { Value: JsonFormattedResult jr }:
                 context.Result = JsonContent(jr);
                 break;
             case ObjectResult obj:

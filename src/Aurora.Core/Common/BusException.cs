@@ -1,4 +1,4 @@
-﻿namespace Aurora.Core.Filters.Exceptions;
+﻿namespace Aurora.Core.Common;
 
 public class BusException: Exception
 {

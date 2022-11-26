@@ -1,5 +1,6 @@
 ﻿using Aurora.Application.Contracts.Systems;
 using Aurora.Application.Contracts.Systems.Dtos.AuthDtos;
+using Aurora.HostApi.Filters.Permissions;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using NSwag.Annotations;
@@ -35,7 +36,7 @@ public class AuthController: ApiControllerBase
     /// 测试
     /// </summary>
     /// <param name="input"></param>
-    [HttpPost]
+    [HttpPost, ApiPermission]
     public async Task SignOut(TokenDto input)
     {
         await Task.CompletedTask;

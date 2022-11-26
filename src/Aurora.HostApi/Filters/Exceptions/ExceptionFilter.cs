@@ -1,7 +1,7 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Aurora.Core.Common;
 using Microsoft.AspNetCore.Mvc.Filters;
 
-namespace Aurora.Core.Filters.Exceptions;
+namespace Aurora.HostApi.Filters.Exceptions;
 
 public class ExceptionFilter: FilterBase, IExceptionFilter
 {

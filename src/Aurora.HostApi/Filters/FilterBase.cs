@@ -1,11 +1,10 @@
-﻿using Aurora.Core.Fillters.Results;
+﻿using Aurora.Core.Common;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
-using System.Text.Json.Serialization;
 
-namespace Aurora.Core.Filters;
+namespace Aurora.HostApi.Filters;
 
-public abstract class FilterBase : IAsyncActionFilter
+public abstract class FilterBase : Attribute, IAsyncActionFilter
 {
     public abstract Task OnActionExecutionAsync(ActionExecutingContext context, ActionExecutionDelegate next);
 
@@ -21,7 +20,7 @@ public abstract class FilterBase : IAsyncActionFilter
 
     public ContentResult Success(string msg)
     {
-        return JsonContent(new JsonResult
+        return JsonContent(new JsonFormattedResult
         {
             Success = true,
             Message = msg,
@@ -36,7 +35,7 @@ public abstract class FilterBase : IAsyncActionFilter
 
     public ContentResult Success<T>(T data)
     {
-        return JsonContent(new JsonResult
+        return JsonContent(new JsonFormattedResult
         {
             Success = true,
             Data = data,
@@ -46,7 +45,7 @@ public abstract class FilterBase : IAsyncActionFilter
 
     public ContentResult Error(string msg, int code)
     {
-        return JsonContent(new JsonResult
+        return JsonContent(new JsonFormattedResult
         {
             Success = false,
             Message = msg,

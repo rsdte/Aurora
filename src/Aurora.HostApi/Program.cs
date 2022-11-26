@@ -1,8 +1,8 @@
 using Aurora.Core.Configurations;
 using Aurora.Core.DependencyInjections;
-using Aurora.Core.Filters.Exceptions;
-using Aurora.Core.Filters.Results;
 using Aurora.EntityFrameworkCore;
+using Aurora.HostApi.Filters.Exceptions;
+using Aurora.HostApi.Filters.Results;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
 using NSwag;
