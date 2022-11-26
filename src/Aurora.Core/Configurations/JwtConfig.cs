@@ -1,7 +1,7 @@
 ﻿using Microsoft.IdentityModel.Tokens;
 using System.Text;
 
-namespace Aurora.HostApi.Options;
+namespace Aurora.Core.Configurations;
 
 public class JwtConfig
 {
