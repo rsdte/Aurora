@@ -19,6 +19,7 @@ public class AuroraDbContext: DbContext
     
     public AuroraDbContext(DbContextOptions<AuroraDbContext> options): base(options)
     {
+        AppContext.SetSwitch("Npgsql.EnableLegacyTimestampBehavior", true);
     }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)

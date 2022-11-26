@@ -26,4 +26,9 @@ public class Permission : EntityBase
     /// 图标
     /// </summary>
     public string Icon { get; set; }
+
+    /// <summary>
+    /// 上级id
+    /// </summary>
+    public string? ParentId { get; set; }
 }

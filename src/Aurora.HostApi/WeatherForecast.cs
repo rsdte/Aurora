@@ -1,3 +1,5 @@
+using System;
+
 namespace Aurora.HostApi;
 
 public class WeatherForecast
