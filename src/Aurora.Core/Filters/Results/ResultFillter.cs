@@ -9,6 +9,7 @@ public class ResultFilter: FilterBase
 
     public override async Task OnActionExecutionAsync(ActionExecutingContext context, ActionExecutionDelegate next)
     {
+        await next.Invoke();
         switch (context.Result)
         {
             case EmptyResult:

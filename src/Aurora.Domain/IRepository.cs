@@ -1,10 +1,13 @@
-﻿using System.Linq.Expressions;
+﻿using Aurora.Core.DependencyInjections;
+using System.Linq.Expressions;
 
 namespace Aurora.Domain;
 
-public interface IRepository<T>
+public interface IRepository<T>: IScopedDependency
     where T : EntityBase
 {
+    IQueryable<T> GetIQueryable();
+
     /// <summary>
     /// 获取一个有效数据
     /// </summary>

@@ -28,6 +28,11 @@ public abstract class RepositoryBase<TEntity> : IRepository<TEntity> where TEnti
         await Task.CompletedTask;
     }
 
+    public IQueryable<TEntity> GetIQueryable()
+    {
+        return _entities.AsQueryable();
+    }
+
     /// <inheritdoc />
     public async Task<TEntity?> FindAsync(Expression<Func<TEntity, bool>> predicate)
     {

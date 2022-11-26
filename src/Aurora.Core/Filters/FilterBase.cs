@@ -1,6 +1,7 @@
 ﻿using Aurora.Core.Fillters.Results;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
+using System.Text.Json.Serialization;
 
 namespace Aurora.Core.Filters;
 
@@ -12,7 +13,7 @@ public abstract class FilterBase : IAsyncActionFilter
     {
         return new ContentResult
         {
-            Content = data.ToString(),
+            Content = System.Text.Json.JsonSerializer.Serialize(data),
             StatusCode = 200,
             ContentType = "application/json; charset=utf-8"
         };

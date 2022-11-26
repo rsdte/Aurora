@@ -1,24 +1,24 @@
+using Aurora.Core.Configurations;
 using Aurora.Core.DependencyInjections;
+using Aurora.Core.Filters.Exceptions;
+using Aurora.Core.Filters.Results;
 using Aurora.EntityFrameworkCore;
-using Aurora.HostApi.Options;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
-using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Options;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-builder.Services.AddOptions<DatabaseOption>("Database");
-var databaseOption = builder.Services.BuildServiceProvider().GetService<IOptions<DatabaseOption>>();
+var databaseSection = builder.Configuration.GetSection(nameof(Database));
+builder.Services.Configure<Database>(databaseSection);
+var database = databaseSection.Get<Database>();
 builder.Services.AddDbContext<AuroraDbContext>(opts =>
-    opts.UseNpgsql(builder.Configuration.GetConnectionString("Default"))
-    ); 
-var jwtConfig = builder.Configuration.GetSection("JwtConfig").Get<JwtConfig>();
+    opts.UseNpgsql(database.ConnectionString)
+    );
+
+var jwtConfigSection = builder.Configuration.GetSection(nameof(JwtConfig));
+builder.Services.Configure<JwtConfig>(jwtConfigSection);
+var jwtConfig = jwtConfigSection.Get<JwtConfig>();
 builder.Services
         .AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
         .AddJwtBearer(config =>
@@ -30,7 +30,11 @@ builder.Services
 
 builder.Services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
 builder.Services.Autowired();
-builder.Services.AddControllers();
+builder.Services.AddControllers(opt =>
+{
+    opt.Filters.Add<ResultFilter>();
+    opt.Filters.Add<ExceptionFilter>();
+});
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();

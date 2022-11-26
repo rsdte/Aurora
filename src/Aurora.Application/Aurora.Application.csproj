@@ -8,10 +8,14 @@
 
     <ItemGroup>
       <PackageReference Include="Microsoft.AspNetCore.Http" Version="2.2.2" />
+      <PackageReference Include="Microsoft.EntityFrameworkCore" Version="6.0.9" />
+      <PackageReference Include="Microsoft.IdentityModel.Tokens" Version="6.10.0" />
+      <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="6.10.0" />
     </ItemGroup>
 
     <ItemGroup>
       <ProjectReference Include="..\Aurora.Application.Contracts\Aurora.Application.Contracts.csproj" />
+      <ProjectReference Include="..\Aurora.Domain\Aurora.Domain.csproj" />
     </ItemGroup>
 
 </Project>

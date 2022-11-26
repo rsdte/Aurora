@@ -5,9 +5,9 @@ namespace Aurora.Core.Filters.Exceptions;
 
 public class ExceptionFilter: FilterBase, IExceptionFilter
 {
-    public override Task OnActionExecutionAsync(ActionExecutingContext context, ActionExecutionDelegate next)
+    public override async Task OnActionExecutionAsync(ActionExecutingContext context, ActionExecutionDelegate next)
     {
-        return Task.CompletedTask;
+        await next.Invoke();
     }
 
     public void OnException(ExceptionContext context)

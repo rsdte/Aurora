@@ -1,8 +1,6 @@
-﻿using Microsoft.Extensions.Options;
+﻿namespace Aurora.Core.Configurations;
 
-namespace Aurora.HostApi.Options;
-
-public class DatabaseOption
+public class Database
 {
     public string Provider { get; set; }
     
