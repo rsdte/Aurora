@@ -2,5 +2,8 @@
 
 public class TokenDto
 {
+    /// <summary>
+    /// 认证 token
+    /// </summary>
     public string AccessToken { get; set; }
 }

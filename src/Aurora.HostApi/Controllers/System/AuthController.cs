@@ -16,6 +16,11 @@ public class AuthController: ControllerBase
 
     }
     
+    /// <summary>
+    /// 登录
+    /// </summary>
+    /// <param name="input">登录用户信息</param>
+    /// <returns></returns>
     [HttpPost]
     public async Task<TokenDto> SignIn(SignInDto input)
     {

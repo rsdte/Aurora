@@ -5,6 +5,7 @@ using Aurora.Core.Filters.Results;
 using Aurora.EntityFrameworkCore;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
+using NSwag;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -28,7 +29,7 @@ builder.Services
             config.TokenValidationParameters = jwtConfig.TokenValidationParameters;
         });
 
-builder.Services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+builder.Services.AddHttpContextAccessor();
 builder.Services.Autowired();
 builder.Services.AddControllers(opt =>
 {
@@ -37,14 +38,35 @@ builder.Services.AddControllers(opt =>
 });
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
+// builder.Services.AddSwaggerGen(c =>
+// {
+//     c.SwaggerDoc("v1", new OpenApiInfo{Title = "aurora api", Version = "v1"});
+//     var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.XML";
+//     var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
+//     //... and tell Swagger to use those XML comments.
+//     c.IncludeXmlComments(xmlPath);
+// });
+builder.Services.AddOpenApiDocument(settings =>
+{
+    settings.AllowReferencesWithProperties = true;
+    settings.AddSecurity("身份认证Token", Enumerable.Empty<string>(), new OpenApiSecurityScheme()
+    {
+        Scheme = "bearer",
+        Description = "Authorization:Bearer {your JWT token}<br/><b>授权地址:/api/Auth/SignIn</b>",
+        Name = "Authorization",
+        In = OpenApiSecurityApiKeyLocation.Header,
+        Type = OpenApiSecuritySchemeType.Http
+    });
+});
+
 
 var app = builder.Build();
+
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
-    app.UseSwagger();
+    app.UseOpenApi();
     app.UseSwaggerUI();
 }
 
