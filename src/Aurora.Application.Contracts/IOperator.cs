@@ -1,6 +1,8 @@
-﻿namespace Aurora.Application.Contracts;
+﻿using Aurora.Core.DependencyInjections;
 
-public interface IOperator
+namespace Aurora.Application.Contracts;
+
+public interface IOperator: IScopedDependency
 {
     public string UserName { get; }
     public string TanentId { get;}

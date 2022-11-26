@@ -21,6 +21,7 @@
 
     <ItemGroup>
       <ProjectReference Include="..\Aurora.Application.Contracts\Aurora.Application.Contracts.csproj" />
+      <ProjectReference Include="..\Aurora.Application\Aurora.Application.csproj" />
       <ProjectReference Include="..\Aurora.EntityFrameworkCore\Aurora.EntityFrameworkCore.csproj" />
     </ItemGroup>
 

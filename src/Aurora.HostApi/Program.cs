@@ -1,3 +1,4 @@
+using Aurora.Core.DependencyInjections;
 using Aurora.EntityFrameworkCore;
 using Aurora.HostApi.Options;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
@@ -21,7 +22,8 @@ builder.Services
             config.TokenValidationParameters = jwtConfig.TokenValidationParameters;
         });
 
-builder.Services.AddHttpContextAccessor();
+builder.Services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+builder.Services.Autowired();
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
@@ -36,7 +38,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
-app.UseHttpsRedirection();
+//app.UseHttpsRedirection();
 
 app.UseAuthorization();
 

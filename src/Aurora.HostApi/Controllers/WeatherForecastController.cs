@@ -1,3 +1,4 @@
+using Aurora.Application.Contracts;
 using Aurora.Domain.Shared.Utils;
 using Microsoft.AspNetCore.Mvc;
 
@@ -13,10 +14,12 @@ public class WeatherForecastController : ControllerBase
     };
 
     private readonly ILogger<WeatherForecastController> _logger;
+    private readonly IOperator _operator;
 
-    public WeatherForecastController(ILogger<WeatherForecastController> logger)
+    public WeatherForecastController(ILogger<WeatherForecastController> logger,IOperator @operator)
     {
         _logger = logger;
+        _operator = @operator;
     }
 
     [HttpGet(Name = "GetWeatherForecast")]

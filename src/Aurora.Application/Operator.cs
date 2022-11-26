@@ -1,7 +1,7 @@
 ﻿using Aurora.Application.Contracts;
 using Microsoft.AspNetCore.Http;
 
-namespace Contracts.Application;
+namespace Aurora.Application;
 
 public class Operator : IOperator
 {
@@ -12,7 +12,7 @@ public class Operator : IOperator
     public string UserId { get; }
 
 
-    public Operator(HttpContextAccessor httpContextAccessor)
+    public Operator(IHttpContextAccessor httpContextAccessor)
     {
 
     }
