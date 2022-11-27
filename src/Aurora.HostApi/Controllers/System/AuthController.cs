@@ -1,4 +1,5 @@
-﻿using Aurora.Application.Contracts.Systems;
+﻿using Aurora.Application.Contracts;
+using Aurora.Application.Contracts.Systems;
 using Aurora.Application.Contracts.Systems.Dtos.AuthDtos;
 using Aurora.HostApi.Filters.Permissions;
 using Microsoft.AspNetCore.Authorization;

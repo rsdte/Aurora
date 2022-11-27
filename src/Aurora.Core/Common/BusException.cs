@@ -23,7 +23,6 @@ public class BusException: Exception
         Message = message;
         Code = code;
     }
-    
     public BusException(string message, int code):this(false, message, code){}
     
     public BusException(string message): this(false, message, 1001){}

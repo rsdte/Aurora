@@ -1,4 +1,5 @@
-﻿using Aurora.Application.Contracts.Systems;
+﻿using Aurora.Application.Contracts;
+using Aurora.Application.Contracts.Systems;
 using Aurora.Application.Contracts.Systems.Dtos.AuthDtos;
 using Aurora.Core.Common;
 using Aurora.Core.Configurations;
@@ -15,36 +16,32 @@ namespace Aurora.Application.Systems;
 
 public class AuthAppService: IAuthAppService
 {
-    private readonly IUserRepository _userRepository;
-    private readonly IUserRoleRepository _userRoleRepository;
     private readonly JwtConfig _jwtConfig;
+    private readonly IUserAppService _userAppService;
+    private readonly IRoleAppService _roleAppService;
 
     public AuthAppService(
-        IUserRepository userRepository, 
-        IUserRoleRepository userRoleRepository,
-        IOptions<JwtConfig> jwtConfig)
+        IOptions<JwtConfig> jwtConfig, 
+        IUserAppService userAppService, IRoleAppService roleAppService)
     {
-        _userRepository = userRepository;
-        _userRoleRepository = userRoleRepository;
+        _userAppService = userAppService;
+        _roleAppService = roleAppService;
         _jwtConfig = jwtConfig.Value;
 
     }
     
+    /// <inheritdoc />
     public async Task<TokenDto> SignInAsync(SignInDto input)
     {
-        var user =  await this._userRepository.FindAsync(p => p.UserName == input.UserName);
+        var user = await _userAppService.GetDataAsync(input.UserName);
         if (user is null)
             throw new BusException("未找到相关用户");
 
         if (user.Password != input.Password)
             throw new BusException("账户或者密码不正确");
 
-        var roleIds = await _userRoleRepository.GetIQueryable()
-            .Where(p => p.UserId == user.Id)
-            .Select(p => p.Id)
-            .ToListAsync();
-        
-        
+        var roleIds = await _roleAppService.GetRoleIdsAsync(user.Id, user.TenantId);
+
         var claims = new[] {
             new Claim(ClaimTypes.Name, user.UserName),
             new Claim("Id", user.Id.ToString()),
