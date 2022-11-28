@@ -15,4 +15,13 @@
     padding: 60px 20px 20px 20px;
 }
 
+.layout_container, .ant-layout{
+    height: 100%;
+    width: 100%;
+}
 
+.nav_header{
+   display: flex;
+    justify-content: space-between;
+    align-items: center;
+}

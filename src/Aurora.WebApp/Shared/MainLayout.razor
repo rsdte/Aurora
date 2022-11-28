@@ -2,21 +2,35 @@
 
 @if (IsLogin)
 {
-    <div class="page">
-        <div class="sidebar">
+    <Layout Style="height: 100%">
+        <Sider Width="256">
             <NavMenu/>
-        </div>
-
-        <main>
-            <div class="top-row px-4">
-                <a href="https://docs.microsoft.com/aspnet/" target="_blank">About</a>
-            </div>
-
-            <article class="content px-4">
+        </Sider>
+        <Layout>
+            <Header style=" padding: 0px; background-color: whitesmoke; border-bottom: solid 1px darkgray">
+                <div class="nav_header">
+                    <Button Type="@ButtonType.Text">
+                        <Icon Type="menu-fold" Theme="outline"/>
+                    </Button>
+                    <Dropdown Style="margin-right: 20px" Trigger="new[] { Trigger.Click }" Placement="Placement.Bottom" Arrow>
+                        <Overlay>
+                            <Menu>
+                                <MenuItem>退出登录</MenuItem>
+                                <MenuItem>切换主题</MenuItem>
+                            </Menu>
+                        </Overlay>
+                        <ChildContent>
+                            <Button Type="@ButtonType.Text">系统管理员-张三</Button>
+                        </ChildContent>
+                    </Dropdown>
+                </div>
+            </Header>
+            <Content Style="margin: 40px 20px 20px 20px;height: 100%;">
                 @Body
-            </article>
-        </main>
-    </div>
+            </Content>
+            @* <Footer>Footer</Footer> *@
+        </Layout>
+    </Layout>
 }
 else
 {
@@ -29,7 +43,7 @@ else
                   WrapperColSpan="16">
                 <FormItem>
                     <h2 style="text-align: center;align-items: center">极光后台管理系统</h2>
-                </FormItem>                
+                </FormItem>
                 <FormItem>
                     <Input @bind-Value="@context.Username"/>
                 </FormItem>

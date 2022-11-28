@@ -7,7 +7,7 @@ namespace Aurora.WebApp.Shared;
 
 public partial class MainLayout
 {
-    public bool IsLogin { get; set; }
+    public bool IsLogin { get; set; } = true;
     
     private Model model = new Model();
 
