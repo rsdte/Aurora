@@ -14,6 +14,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Aurora.HostApi", "src\Auror
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Aurora.Core", "src\Aurora.Core\Aurora.Core.csproj", "{137B63DD-C23E-402B-A8BA-EA4B7D142944}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Aurora.WebApp", "src\Aurora.WebApp\Aurora.WebApp.csproj", "{210B13B8-05BB-4744-8255-B2AABFB4F03B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -48,5 +50,9 @@ Global
 		{137B63DD-C23E-402B-A8BA-EA4B7D142944}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{137B63DD-C23E-402B-A8BA-EA4B7D142944}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{137B63DD-C23E-402B-A8BA-EA4B7D142944}.Release|Any CPU.Build.0 = Release|Any CPU
+		{210B13B8-05BB-4744-8255-B2AABFB4F03B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{210B13B8-05BB-4744-8255-B2AABFB4F03B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{210B13B8-05BB-4744-8255-B2AABFB4F03B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{210B13B8-05BB-4744-8255-B2AABFB4F03B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
