@@ -14,9 +14,9 @@ public static class ObjectExtensions
             return string.IsNullOrWhiteSpace(s);
         }
 
-        if (self is IEnumerable t && t.GetEnumerator().Current == null)
+        if (self is IEnumerable<object> t)
         {
-            return true;
+            return !t.Any();
         }
 
         return false;
