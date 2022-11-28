@@ -1,4 +1,5 @@
 ﻿using Aurora.Application.Contracts;
+using Aurora.Application.Contracts.Systems;
 using Aurora.Core.Common;
 using Aurora.Domain.Systems.Permissions;
 using Aurora.Domain.Systems.RolePermissions;
