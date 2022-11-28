@@ -41,7 +41,7 @@ public static class MapperExtensions
             {
                 foreach(var destination in item.Value)
                 {
-                    cfg.CreateMap(item.Key, destination);
+                    cfg.CreateMap(destination,item.Key).ReverseMap();
                 }
             }
             cfg.AddMaps(assemblies);

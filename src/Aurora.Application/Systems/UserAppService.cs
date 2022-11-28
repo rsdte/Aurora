@@ -6,6 +6,7 @@ using Aurora.Core.Extensions;
 using Aurora.Domain.Shared.Utils;
 using Aurora.Domain.Systems.UserRoles;
 using Aurora.Domain.Systems.Users;
+using AutoMapper;
 
 namespace Aurora.Application.Systems;
 
@@ -15,18 +16,20 @@ public class UserAppService: IUserAppService
     private readonly IUserRoleRepository _userRoleRepository;
     private readonly IRoleAppService _roleAppService;
     private readonly IOperator _operator;
+    private readonly IMapper _mapper;
 
     public UserAppService(
         IUserRepository userRepository, 
         IUserRoleRepository userRoleRepository, 
         IRoleAppService roleAppService, 
-        IOperator @operator
-        )
+        IOperator @operator,
+        IMapper mapper)
     {
         _userRepository = userRepository;
         _userRoleRepository = userRoleRepository;
         _roleAppService = roleAppService;
         _operator = @operator;
+        _mapper = mapper;
     }
 
     /// <inheritdoc />
@@ -35,13 +38,15 @@ public class UserAppService: IUserAppService
         var user = await _userRepository.FindAsync(p => p.UserName == userName);
         if (user.IsNullOrEmpty())
             return default;
-        return new UserDto
-        {
-            UserName = user.UserName,
-            Id = user.Id,
-            Password = user.Password,
-            TenantId = user.TenantId
-        };
+
+        return _mapper.Map<UserDto>(user);
+        // return new UserDto
+        // {
+        //     UserName = user.UserName,
+        //     Id = user.Id,
+        //     Password = user.Password,
+        //     TenantId = user.TenantId
+        // };
     }
 
     /// <inheritdoc />

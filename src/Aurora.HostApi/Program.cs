@@ -1,5 +1,6 @@
 using Aurora.Core.Configurations;
 using Aurora.Core.DependencyInjections;
+using Aurora.Core.Mappers;
 using Aurora.EntityFrameworkCore;
 using Aurora.HostApi.Filters.Exceptions;
 using Aurora.HostApi.Filters.Results;
@@ -31,6 +32,7 @@ builder.Services
 
 builder.Services.AddHttpContextAccessor();
 builder.Services.Autowired();
+builder.Services.AddMapper();
 builder.Services.AddControllers(opt =>
 {
     opt.Filters.Add<ResultFilter>();

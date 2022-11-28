@@ -1,5 +1,9 @@
-﻿namespace Aurora.Application.Contracts.Systems.Dtos.UserDtos;
+﻿using Aurora.Core.Mappers;
+using Aurora.Domain.Systems.Users;
 
+namespace Aurora.Application.Contracts.Systems.Dtos.UserDtos;
+
+[Mapper(typeof(User))]
 public class UserDto
 {
     public string Id { get; set; }
