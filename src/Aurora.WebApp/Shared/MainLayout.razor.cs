@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Components.Forms;
+﻿using Aurora.WebApp.Provider.OperatorProviders;
+using Microsoft.AspNetCore.Components;
+using Microsoft.AspNetCore.Components.Forms;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.Text.Json;
@@ -7,9 +9,10 @@ namespace Aurora.WebApp.Shared;
 
 public partial class MainLayout
 {
-    public bool IsLogin { get; set; } = false;
-   
-    
-    
+    // [Inject]
+    // public IOperatorProvider OperatorProvider { get; set; }
+    //
+    // public bool IsLogin => OperatorProvider.IsLogin;
+
 }
 

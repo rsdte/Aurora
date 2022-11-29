@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Components.Forms;
+﻿using Aurora.WebApp.Application.Contracts;
+using Microsoft.AspNetCore.Components;
+using Microsoft.AspNetCore.Components.Forms;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.Text.Json;
@@ -7,16 +9,16 @@ namespace Aurora.WebApp.Shared;
 
 public partial class LoginComponent
 {
+    [Inject]
+    public IAuthAppService AuthAppService { get; set; }
+    
     private Model model = new Model();
 
-    private void OnFinish(EditContext editContext)
+    private async void OnFinish(EditContext editContext)
     {
         // Console.WriteLine($"Success:{JsonSerializer.Serialize(model)}");
 
-        if (model.Username == "admin" && model.Password == "123")
-        {
-            StateHasChanged();
-        }
+        await AuthAppService.Login(model.Username, model.Password);
     }
 
     private void OnFinishFailed(EditContext editContext)
