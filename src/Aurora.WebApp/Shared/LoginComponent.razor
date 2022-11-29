@@ -1,0 +1,53 @@
+﻿<div class="container">
+    <div class="login_container">
+        <Form Model="@model"
+              OnFinish="OnFinish"
+              OnFinishFailed="OnFinishFailed"
+              LabelColSpan="8"
+              WrapperColSpan="16">
+            <GridRow Style="margin-bottom: 4px" Justify="center" Align="middle">
+                <Avatar Size="4rem" Src="https://tabblazor.com/_content/Tabler.Docs/img/avatars/002m.jpg"/>
+            </GridRow>
+            <GridRow Style="margin-bottom: 32px" Justify="center" Align="middle">
+                <span style="font-size: 3vh;font-weight: bold;">欢迎使用极光管理系统</span>
+            </GridRow>
+            <GridRow Style="margin-bottom: 32px" Justify="center" Align="middle">
+                <GridCol Span="18">
+                    <Input Size="@InputSize.Large" @bind-Value="@context.Username" Placeholder="UserName or Email"/>
+                </GridCol>
+            </GridRow>
+            <GridRow Style="margin-bottom: 2px" Justify="center" Align="middle">
+                <GridCol Span="18">
+                    <InputPassword Size="@InputSize.Large" Placeholder="Password" @bind-Value="@context.Password"/>
+                </GridCol>
+            </GridRow>
+            <GridRow Style="margin-bottom: 32px" Justify="end" Align="top">
+                <GridCol Pull="2">
+                    <Button Type="@ButtonType.Text">Forgot Password?</Button>
+                </GridCol>
+            </GridRow>
+            <FormItem Style="margin-bottom: 16px" WrapperColOffset="4" WrapperColSpan="16">
+                <Button Block Shape="@ButtonShape.Round" Size="@ButtonSize.Large" Type="@ButtonType.Primary" HtmlType="submit">
+                    Submit
+                </Button>
+            </FormItem>
+            
+            <GridRow Justify="center" Align="middle">
+                <span>New on our platform?</span>
+                <Button Type="@ButtonType.Link" >Create an account</Button>
+            </GridRow>
+            
+            <GridRow Style="margin-bottom: 16px">
+                <Divider Orientation="Center" Plain>or login with</Divider>
+            </GridRow>
+            <GridRow Justify="center" Align="middle">
+                <Button Type="@ButtonType.Text" Size="@ButtonSize.Large">
+                    <Icon Style="font-size: 24px" Type="github" Theme="outline"/>
+                </Button>
+                <Button Type="@ButtonType.Text" Size="@ButtonSize.Large"><Icon Style="font-size: 24px"  Type="twitter" Theme="outline"/></Button>
+                <Button Type="@ButtonType.Text" Size="@ButtonSize.Large"><Icon Style="font-size: 24px"  Type="wechat" Theme="outline"/></Button>
+                <Button Type="@ButtonType.Text" Size="@ButtonSize.Large"><Icon Style="font-size: 24px"  Type="instagram" Theme="outline"/></Button>
+            </GridRow>
+        </Form>
+    </div>
+</div>

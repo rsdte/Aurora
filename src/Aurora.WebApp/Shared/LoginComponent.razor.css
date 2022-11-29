@@ -1,0 +1,19 @@
+﻿.container{
+    height: 100%;
+    width: 100%;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.login_container{
+    height: 80%;
+    width: 30%;
+    padding: 20px;
+    /*display: flex;*/
+    /*flex-direction: column;*/
+    /*justify-content: space-between;*/
+    /*align-items: center;*/
+    /*border: solid 1px red;*/
+}
