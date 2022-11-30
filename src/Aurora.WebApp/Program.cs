@@ -11,6 +11,7 @@ using Microsoft.AspNetCore.Components.Authorization;
 using Microsoft.JSInterop;
 using System.Diagnostics;
 using System.Text.Json;
+using System.IdentityModel.Tokens.Jwt;
 
 var builder = WebAssemblyHostBuilder.CreateDefault(args);
 builder.RootComponents.Add<App>("#app");
@@ -38,5 +39,7 @@ builder.Services
     .AddAuthorizationCore()
     .AddScoped<AuthenticationStateProvider, AuroraAuthenticationStateProvider>()
     .AddScoped<IAuthAppService, AuthAppService>();
+
+builder.Services.AddScoped<JwtSecurityTokenHandler>();
 
 await builder.Build().RunAsync();
